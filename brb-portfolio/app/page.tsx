@@ -9,11 +9,9 @@ export default function Home() {
       <>
           <Header />
           <main>
-              <div className='bg-background'>
+              <div className='bg-background relative z-10'>
                   <Hero />
                   <AboutMe />
-              </div>
-              <div>
               </div>
               <ExperienceCarousel />
               <div className='h-[300vh]'></div>
