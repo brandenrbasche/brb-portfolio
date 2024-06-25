@@ -6,14 +6,14 @@ const Header = () => {
     return (
         <>
             <header className='bg-backgroundContrast text-white'>
-                <Container className='flex items-center min-h-11'>
-                    <a href='/' className='text-l flex items-center px-6 -ml-6'>brb.codes</a>
+                <Container className='flex items-center min-h-[--header-row-height]'>
+                    <a href='/' className='-ml-6 flex h-[--header-row-height] items-center px-6 text-lg'>brb.codes</a>
                 </Container>
             </header>
-            <div className='bg-backgroundContrast sticky top-0 text-white'>
-                <Container className='flex min-h-11 items-center justify-between'>
+            <div className='bg-backgroundContrast sticky top-0 text-white z-20'>
+                <Container className='flex min-h-[--header-row-height] items-center justify-between'>
                     <p className='text-xl font-semibold'>Branden Basche</p>
-                    <Button size='small'>test</Button>
+                    <Button size='small'>Let's connect</Button>
                 </Container>
             </div>
         </>
