@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import {Container} from "@/components/ui/Container";
+import Button from "@/components/ui/Button";
 
 export default function Home() {
   return (
@@ -7,7 +8,10 @@ export default function Home() {
           <Header />
           <main>
               <div className='h-[300vh]'>
-                  <Container>hero</Container>
+                  <Container>
+                      <p>hero</p>
+                      <Button size='large'>Large button</Button>
+                  </Container>
               </div>
               <div>
                   <Container>
