@@ -27,6 +27,10 @@ export const ExperienceCarousel = () => {
 
     const scale = useTransform(scrollYProgress, [0.3, 0.5, 0.66], [maximumScale * 1.1, maximumScale, 1])
 
+    const cardOpacity = useTransform(scrollYProgress, [0.64, 0.66], [0, 1]);
+    const cardOpacityTranslateLeft = useTransform(scrollYProgress, [0.64, 0.66], [-20, 0]);
+    const cardOpacityTranslateRight = useTransform(scrollYProgress, [0.64, 0.66], [20, 0]);
+
     return (
         <div className='bg-background pb-8 text-white'>
             <div
@@ -36,12 +40,18 @@ export const ExperienceCarousel = () => {
                 <div className='sticky top-0 flex h-screen items-center'>
                     {/*MAIN CAROUSEL*/}
                     <div className='relative left-1/2 mb-5 flex -translate-x-1/2 gap-5'>
-                        <Card
-                            company={experiences[0].company}
-                            jobDescription={experiences[0].jobDescription}
-                            jobTitle={experiences[0].jobTitle}
-                            jobLength={experiences[0].jobLength}
-                        />
+                        {/*FIRST CARD*/}
+                        <motion.div
+                            style={{opacity: cardOpacity, x: cardOpacityTranslateLeft}}
+                        >
+                            <Card
+                                company={experiences[0].company}
+                                jobDescription={experiences[0].jobDescription}
+                                jobTitle={experiences[0].jobTitle}
+                                jobLength={experiences[0].jobLength}
+                            />
+                        </motion.div>
+                        {/*MIDDLE CARD*/}
                         <motion.div
                             style={{ scale }}
                         >
@@ -52,18 +62,21 @@ export const ExperienceCarousel = () => {
                                 jobLength={experiences[1].jobLength}
                             />
                         </motion.div>
-                        <Card
-                            company={experiences[2].company}
-                            jobDescription={experiences[2].jobDescription}
-                            jobTitle={experiences[2].jobTitle}
-                            jobLength={experiences[2].jobLength}
-                        />
+                        {/*LAST CARD*/}
+                        <motion.div
+                            style={{ opacity: cardOpacity, translate: cardOpacityTranslateRight }}
+                        >
+                            <Card
+                                company={experiences[2].company}
+                                jobDescription={experiences[2].jobDescription}
+                                jobTitle={experiences[2].jobTitle}
+                                jobLength={experiences[2].jobLength}
+                            />
+                        </motion.div>
                     </div>
-
-
                 </div>
             </div>
-            <div className='relative space-y-3'>
+            <div className='space-y-3 mt-[-125px]'>
                 <SmallCarousel tools={frontEndTools}/>
                 <div className='[--duration:50s]'>
                     <SmallCarousel tools={backEndTools}/>
