@@ -1,5 +1,6 @@
 import React from 'react';
-import {Container} from "./Container";
+import {Container} from "./ui/Container";
+import Button from "@/components/ui/Button";
 
 const Header = () => {
     return (
@@ -10,7 +11,10 @@ const Header = () => {
                 </Container>
             </header>
             <div className='bg-backgroundContrast sticky top-0 text-white'>
-                <Container className='flex min-h-11 items-center'>Branden Basche</Container>
+                <Container className='flex min-h-11 items-center justify-between'>
+                    <p>Branden Basche</p>
+                    <Button>test</Button>
+                </Container>
             </div>
         </>
     );
